@@ -10,7 +10,7 @@ The following resources can be created:
 ## Usage
 ### Specify this Module as Source
 ```hcl
-module "alb" {
+module "s3" {
   source = "git::https://github.com/zoitech/terraform-aws-s3-with-iam-access.git"
 
   # Or to specifiy a particular module version:
