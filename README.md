@@ -18,10 +18,8 @@ module "s3" {
 ```
 ### General Arguments
 #### Resource Creation Location
-The arguments for the account ID, VPC ID and region are required to specify where the resources should be created:
+The argument for the region is required to specify where the resources should be created:
 ```hcl
-account_id = "123456789123"
-vpc_id = "vpc-ab123456"
 region = "eu-west-1" #default = "eu-central-1"
 ```
 #### PGP Key 
@@ -60,13 +58,11 @@ By default the prevent_destroy lifecycle is to "true" to prevent accidental buck
 #### IAM User(s): S3 Bucket Full Permissions 
 Create IAM user(s) with full S3 bucket permissions (These users receive both management console and programmatic access):
 ```hcl
-iam_user_s3_full = true #default = false
 iam_user_s3_full_names = ["superadmin1", "superadmin2"]
 ```
 #### IAM User(s): S3 Bucket List/Delete Permissions 
 Create IAM user(s) with limited administrative (list and delete) S3 bucket permissions (These users receive both management console and programmatic access):
 ```hcl
-iam_user_s3_list_delete = true #default = false
 iam_user_s3_list_delete_names = ["admin1", "admin2"]
 ```
 #### IAM User(s): S3 Bucket Get/Delete Permissions 
@@ -74,13 +70,11 @@ Create IAM user(s) with limited administrative (get and delete) S3 bucket permis
 
 Recommended as a synchronisation user:
 ```hcl
-iam_user_s3_get_delete = true #default = false
 iam_user_s3_get_delete_names = ["sync_user", "sync_user2"]
 ```
 ### IAM Bucket Standard Users
 Create IAM user(s) with their own bucket key (directory) in the S3 bucket. These users are assigned their own KMS keys which enable them to upload files in encrypted format as well as to download them and decrypt. (These users receive only programmatic access, therefore FTP client software such as CloudBerry or Cyberduck should be used):
 ```hcl
-iam_user_s3_standard = true #default = false
 iam_user_s3_standard_names = ["Huey", "Dewey", "Louie"]
 ```
 
