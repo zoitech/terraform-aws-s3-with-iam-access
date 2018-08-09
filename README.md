@@ -54,6 +54,12 @@ N.b. Object versioning must be enabled to expire current versions and delete pre
 #### Bucket Lifecycle Prevent Destroy
 By default the prevent_destroy lifecycle is to "true" to prevent accidental bucket deletion via terraform.
 
+#### The KMS Bucket Policy 
+Setting the following variable to true, will apply the KMS bucket policy which disabled unencrypted uploads and enables uploads from users which possess KMS keys:
+```hcl
+enable_kms_bucket_policy = true #default = false
+```
+
 ### IAM Bucket Management Users 
 #### IAM User(s): S3 Bucket Full Permissions 
 Create IAM user(s) with full S3 bucket permissions (These users receive both management console and programmatic access):
