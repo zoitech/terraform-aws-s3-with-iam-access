@@ -37,3 +37,7 @@ variable "s3_lifecycle_prevent_destroy" {
   description = "Prevent/allow terraform to destroy the bucket"
   default     = false
 }
+variable "enable_kms_bucket_policy" {
+  description = "Disables unencrypted uploads, enables user uploads with KMS keys"
+  default     = false
+}

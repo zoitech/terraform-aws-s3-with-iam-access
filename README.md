@@ -1,11 +1,13 @@
 # AWS S3 Bucket with IAM Access Module
 Terraform module which creates an S3 bucket with varying levels of access for IAM users.
 
-The following resources can be created:
+The following resources will be created:
 * An S3 bucket
+The following resources are optional:
 * IAM User(s)
 * IAM Policies
 * KMS Keys
+* KMS Bucket Policy
 
 ## Usage
 ### Specify this Module as Source
@@ -22,11 +24,7 @@ The argument for the region is required to specify where the resources should be
 ```hcl
 region = "eu-west-1" #default = "eu-central-1"
 ```
-#### PGP Key 
-A public PGP key (in binary format) is required for encrypting the IAM secret keys and KMS keys, as these are given in output (Please see outputs below):
-```hcl
-pgp_keyname = "C123654C.pgp"
-```
+
 ### S3 Bucket Arguments
 #### Bucket Name 
 Set the bucket name:
@@ -54,7 +52,14 @@ N.b. Object versioning must be enabled to expire current versions and delete pre
 #### Bucket Lifecycle Prevent Destroy
 By default the prevent_destroy lifecycle is to "true" to prevent accidental bucket deletion via terraform.
 
+#### The KMS Bucket Policy 
+Setting the following variable to true, will apply the KMS bucket policy which disables unencrypted uploads and enables uploads from users which possess KMS keys (Pleae note if this variable is enabled, IAM Users are REQUIRED to be created, or the apply will fail!):
+```hcl
+enable_kms_bucket_policy = true #default = false
+```
+
 ### IAM Bucket Management Users 
+
 #### IAM User(s): S3 Bucket Full Permissions 
 Create IAM user(s) with full S3 bucket permissions (These users receive both management console and programmatic access):
 ```hcl
@@ -76,6 +81,12 @@ iam_user_s3_get_delete_names = ["sync_user", "sync_user2"]
 Create IAM user(s) with their own bucket key (directory) in the S3 bucket. These users are assigned their own KMS keys which enable them to upload files in encrypted format as well as to download them and decrypt. (These users receive only programmatic access, therefore FTP client software such as CloudBerry or Cyberduck should be used):
 ```hcl
 iam_user_s3_standard_names = ["Huey", "Dewey", "Louie"]
+```
+
+#### PGP Key 
+A public PGP key (in binary format) is required for encrypting the IAM secret keys and KMS keys, as these are given in output (Please see outputs below):
+```hcl
+pgp_keyname = "C123654C.pgp"
 ```
 
 ### Outputs 
