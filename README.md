@@ -1,3 +1,5 @@
+## Release Version: 0.0.2
+
 # AWS S3 Bucket with IAM Access Module
 Terraform module which creates an S3 bucket with varying levels of access for IAM users.
 
