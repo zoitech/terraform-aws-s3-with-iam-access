@@ -50,6 +50,7 @@ POLICY
 
 # create alias(') for the KMS key(s)
 resource "aws_kms_alias" "kmskeyaliases" {
+  count       = "${local.count_standard_user}"
   name          = "alias/${element(var.iam_user_s3_standard_names, count.index)}"
   target_key_id = "${element(aws_kms_key.kmskey.*.key_id, count.index)}"
 }
