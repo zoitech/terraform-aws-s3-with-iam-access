@@ -38,6 +38,6 @@ variable "s3_lifecycle_prevent_destroy" {
   default     = false
 }
 variable "enable_kms_bucket_policy" {
-  description = "Disalbed unencrypted uploads, enables user uploads with KMS keys"
+  description = "Disables unencrypted uploads, enables user uploads with KMS keys"
   default     = false
 }
