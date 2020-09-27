@@ -1,10 +1,9 @@
 # iam policy for full permission users 
 resource "aws_iam_policy" "iam_policy_s3_all" {
-  count         = "${local.count_iam_user_s3_full_names}"
+  count       = local.count_iam_user_s3_full_names
   name        = "${aws_s3_bucket.s3_bucket.bucket}-${element(aws_iam_user.iam_user_s3_full_access.*.name, count.index)}-s3-full-policy"
   path        = "/"
   description = "Grants ${element(aws_iam_user.iam_user_s3_full_access.*.name, count.index)} full permissions for S3 bucket ${aws_s3_bucket.s3_bucket.bucket}"
-
 
   policy = <<EOF
 {
@@ -38,14 +37,21 @@ resource "aws_iam_policy" "iam_policy_s3_all" {
     ]
 }
 EOF
+
 }
 
 # iam policy for list delete permission users
 resource "aws_iam_policy" "iam_policy_s3_list_delete" {
-  count       = "${local.count_iam_user_s3_list_delete_names}"
-  name        = "${aws_s3_bucket.s3_bucket.bucket}-${element(aws_iam_user.iam_user_s3_list_delete_access.*.name, count.index)}-s3-list-delete-policy"
-  path        = "/"
-  description = "Grants ${element(aws_iam_user.iam_user_s3_list_delete_access.*.name, count.index)} list/delete permissions for S3 bucket ${aws_s3_bucket.s3_bucket.bucket}"
+  count = local.count_iam_user_s3_list_delete_names
+  name = "${aws_s3_bucket.s3_bucket.bucket}-${element(
+    aws_iam_user.iam_user_s3_list_delete_access.*.name,
+    count.index,
+  )}-s3-list-delete-policy"
+  path = "/"
+  description = "Grants ${element(
+    aws_iam_user.iam_user_s3_list_delete_access.*.name,
+    count.index,
+  )} list/delete permissions for S3 bucket ${aws_s3_bucket.s3_bucket.bucket}"
 
   policy = <<EOF
 {
@@ -70,14 +76,21 @@ resource "aws_iam_policy" "iam_policy_s3_list_delete" {
   ]
 }
 EOF
+
 }
 
 # iam policy for get delete permission users
 resource "aws_iam_policy" "iam_policy_s3_get_delete" {
-  count       = "${local.count_iam_user_s3_get_delete_names}"
-  name        = "${aws_s3_bucket.s3_bucket.bucket}-${element(aws_iam_user.iam_user_s3_get_delete_access.*.name, count.index)}-s3-list-delete-policy"
-  path        = "/"
-  description = "Grants ${element(aws_iam_user.iam_user_s3_get_delete_access.*.name, count.index)} get/delete permissions for S3 bucket ${aws_s3_bucket.s3_bucket.bucket}"
+  count = local.count_iam_user_s3_get_delete_names
+  name = "${aws_s3_bucket.s3_bucket.bucket}-${element(
+    aws_iam_user.iam_user_s3_get_delete_access.*.name,
+    count.index,
+  )}-s3-list-delete-policy"
+  path = "/"
+  description = "Grants ${element(
+    aws_iam_user.iam_user_s3_get_delete_access.*.name,
+    count.index,
+  )} get/delete permissions for S3 bucket ${aws_s3_bucket.s3_bucket.bucket}"
 
   policy = <<EOF
 {
@@ -101,4 +114,6 @@ resource "aws_iam_policy" "iam_policy_s3_get_delete" {
   ]
 }
 EOF
+
 }
+
