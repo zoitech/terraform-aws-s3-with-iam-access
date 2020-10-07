@@ -103,27 +103,27 @@ Example usage:
 ```hcl
 #The name of the S3 bucket
 output "Bucket-Name" {
-  value = "${module.s3.bucket_name}"
+  value = module.s3.bucket_name
 }
 #The ARN of the S3 bucket
 output "Bucket-ARN" {
-  value = "${module.s3.bucket_arn}"
+  value = module.s3.bucket_arn
 }
 #The users with full S3 bucket permissions
 output "Superadmins" {
-  value = "${module.s3.s3_full_user_info}"
+  value = module.s3.s3_full_user_info
 }
 #The users with list/delete S3 bucket permissions
 output "Admins" {
-  value = "${module.s3.s3_list_delete_user_info}"
+  value = module.s3.s3_list_delete_user_info
 }
 #The users with get/delete S3 bucket permissions
 output "Sync-Users" {
-  value = "${module.s3.s3_get_delete_user_info}"
+  value = module.s3.s3_get_delete_user_info
 }
 #The users with access to their own S3 bucket keys
 output "User-Info" {
-  value = "${module.s3.standard_user_info}"
+  value = module.s3.standard_user_info
 }
 ```
 

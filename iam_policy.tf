@@ -1,6 +1,6 @@
 # iam policy for the standard users
 resource "aws_iam_policy" "iam_policy_standard_user" {
-  count       = "${local.count_standard_user}"
+  count       = local.count_standard_user
   name        = "${aws_s3_bucket.s3_bucket.bucket}-${element(aws_iam_user.standard_user.*.name, count.index)}-policy"
   path        = "/"
   description = "Grants ${element(aws_iam_user.standard_user.*.name, count.index)} download and upload access to the respective S3 folder for ${aws_s3_bucket.s3_bucket.bucket}"
@@ -39,4 +39,6 @@ resource "aws_iam_policy" "iam_policy_standard_user" {
 }
 
 EOF
+
 }
+
