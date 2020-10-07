@@ -1,4 +1,4 @@
-## Releases Version: 0.0.3
+## Releases Version: 1.0.0
 ENHANCEMENTS:
 * Upgrade TF to version 12 
 
