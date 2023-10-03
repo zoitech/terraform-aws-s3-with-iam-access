@@ -168,3 +168,92 @@ User-Info = [
 "bucket_key: my-s3-bucket/Louie"
 ]
 ```
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_template"></a> [template](#provider\_template) | n/a |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_access_key.iam_user_s3_full_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
+| [aws_iam_access_key.iam_user_s3_get_delete_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
+| [aws_iam_access_key.iam_user_s3_list_delete_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
+| [aws_iam_access_key.iam_user_standard_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
+| [aws_iam_policy.iam_policy_s3_all](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.iam_policy_s3_get_delete](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.iam_policy_s3_list_delete](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.iam_policy_standard_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_user.iam_user_s3_full_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user.iam_user_s3_get_delete_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user.iam_user_s3_list_delete_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user.standard_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_login_profile.s3_full_login](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_login_profile) | resource |
+| [aws_iam_user_login_profile.s3_list_delete_login](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_login_profile) | resource |
+| [aws_iam_user_policy_attachment.attach_s3_full_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_iam_user_policy_attachment.attach_s3_get_delete](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_iam_user_policy_attachment.attach_s3_list_delete_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_iam_user_policy_attachment.user-attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [aws_kms_alias.kmskeyaliases](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias) | resource |
+| [aws_kms_key.kmskey](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) | resource |
+| [aws_s3_bucket.s3_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_object.bucket_objects](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object) | resource |
+| [aws_s3_bucket_policy.s3_kms_bucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [template_file.bucket_policy](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.bucket_policy_for_a_standard_user](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.bucket_policy_for_deny_unencrypted](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_full_user_output](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_full_user_outputs](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_get_delete_user_output](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_get_delete_user_outputs](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_list_delete_user_output](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.s3_list_delete_user_outputs](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.standard_user_output](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+| [template_file.standard_user_outputs](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_enable_kms_bucket_policy"></a> [enable\_kms\_bucket\_policy](#input\_enable\_kms\_bucket\_policy) | Disables unencrypted uploads, enables user uploads with KMS keys | `bool` | `false` | no |
+| <a name="input_iam_user_s3_full_names"></a> [iam\_user\_s3\_full\_names](#input\_iam\_user\_s3\_full\_names) | Names of the IAM users with S3 bucket full access | `list(string)` | `[]` | no |
+| <a name="input_iam_user_s3_get_delete_names"></a> [iam\_user\_s3\_get\_delete\_names](#input\_iam\_user\_s3\_get\_delete\_names) | Names of the IAM users with S3 bucket get/delete permissions | `list(string)` | `[]` | no |
+| <a name="input_iam_user_s3_list_delete_names"></a> [iam\_user\_s3\_list\_delete\_names](#input\_iam\_user\_s3\_list\_delete\_names) | Names of the IAM users with S3 bucket list/delete permissions | `list(string)` | `[]` | no |
+| <a name="input_iam_user_s3_standard_names"></a> [iam\_user\_s3\_standard\_names](#input\_iam\_user\_s3\_standard\_names) | Names of the IAM users with standard access | `list(string)` | `[]` | no |
+| <a name="input_lifecycle_rule_enabled"></a> [lifecycle\_rule\_enabled](#input\_lifecycle\_rule\_enabled) | To enable the lifecycle rule | `bool` | `false` | no |
+| <a name="input_lifecycle_rule_expiration"></a> [lifecycle\_rule\_expiration](#input\_lifecycle\_rule\_expiration) | Delete current object version X days after creation | `number` | `0` | no |
+| <a name="input_lifecycle_rule_id"></a> [lifecycle\_rule\_id](#input\_lifecycle\_rule\_id) | Name of the lifecyle rule id. | `string` | `""` | no |
+| <a name="input_lifecycle_rule_noncurrent_version_expiration"></a> [lifecycle\_rule\_noncurrent\_version\_expiration](#input\_lifecycle\_rule\_noncurrent\_version\_expiration) | Delete noncurrent object versions X days after creation | `number` | `90` | no |
+| <a name="input_lifecycle_rule_prefix"></a> [lifecycle\_rule\_prefix](#input\_lifecycle\_rule\_prefix) | Lifecycle rule prefix. | `string` | `""` | no |
+| <a name="input_pgp_keyname"></a> [pgp\_keyname](#input\_pgp\_keyname) | Public PGP key in binary format | `string` | `""` | no |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | A prefix which is added to each resource name. | `string` | `""` | no |
+| <a name="input_region"></a> [region](#input\_region) | The AWS region to run in. | `string` | `"eu-central-1"` | no |
+| <a name="input_s3_bucket_name"></a> [s3\_bucket\_name](#input\_s3\_bucket\_name) | Name of the S3 bucket | `string` | `""` | no |
+| <a name="input_s3_lifecycle_prevent_destroy"></a> [s3\_lifecycle\_prevent\_destroy](#input\_s3\_lifecycle\_prevent\_destroy) | Prevent/allow terraform to destroy the bucket | `bool` | `false` | no |
+| <a name="input_s3_versioning_enabled"></a> [s3\_versioning\_enabled](#input\_s3\_versioning\_enabled) | To enable file versioning | `bool` | `false` | no |
+| <a name="input_suffix"></a> [suffix](#input\_suffix) | A suffix which is added to each resource name. | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_bucket_arn"></a> [bucket\_arn](#output\_bucket\_arn) | n/a |
+| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | n/a |
+| <a name="output_s3_full_user_info"></a> [s3\_full\_user\_info](#output\_s3\_full\_user\_info) | n/a |
+| <a name="output_s3_get_delete_user_info"></a> [s3\_get\_delete\_user\_info](#output\_s3\_get\_delete\_user\_info) | n/a |
+| <a name="output_s3_list_delete_user_info"></a> [s3\_list\_delete\_user\_info](#output\_s3\_list\_delete\_user\_info) | n/a |
+| <a name="output_standard_user_info"></a> [standard\_user\_info](#output\_standard\_user\_info) | n/a |

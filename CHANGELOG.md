@@ -1,4 +1,13 @@
+## 2.0.0
+
+ENHANCEMENTS:
+* Upgraded terraform version to 0.13  [#6](https://github.com/zoitech/terraform-aws-s3-with-iam-access/issues/6)
+
+BACKWARDS INCOMPATIBILITIES / NOTES:
+* Works with terraform 0.13.x
+
 ## Releases Version: 1.0.0
+
 ENHANCEMENTS:
 * Upgrade TF to version 12 
 
