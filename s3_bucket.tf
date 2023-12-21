@@ -1,31 +1,37 @@
-# The S3 bucket 
+# The S3 bucket
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.s3_bucket_name
-  acl    = "private"
-  region = var.region
+}
 
-  versioning {
-    enabled = var.s3_versioning_enabled #default = false
+resource "aws_s3_bucket_acl" "name" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  acl = "private"
+}
+
+resource "aws_s3_bucket_versioning" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  versioning_configuration {
+    status = var.s3_versioning_enabled ? "Enabled" : "Disabled" #default = false
   }
+}
 
-  lifecycle_rule {
-    enabled = var.lifecycle_rule_enabled #default = false
-    id      = var.lifecycle_rule_id      #required #default = ""
-    prefix  = var.lifecycle_rule_prefix  #default = whole bucket
+resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
+  bucket = aws_s3_bucket.s3_bucket.id
+  rule {
+    status = var.lifecycle_rule_enabled  ? "Enabled" : "Disabled" #default = false
+    id      = "test"      #required #default = ""
+
+    filter {
+      prefix  = var.lifecycle_rule_prefix  #default = whole bucket
+    }
+
 
     expiration {
       days = var.lifecycle_rule_expiration #default = 0
     }
 
     noncurrent_version_expiration {
-      days = var.lifecycle_rule_noncurrent_version_expiration #default = 90
+      noncurrent_days  = var.lifecycle_rule_noncurrent_version_expiration #default = 90
     }
   }
-  #Make prevent_destroy setable with variable when terraform code has been changed to make this possible 
-  #hashicorp/terraform#3116
-
-  #lifecycle {
-  #  prevent_destroy = true
-  #}
 }
-
