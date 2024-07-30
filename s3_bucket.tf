@@ -5,24 +5,24 @@ resource "aws_s3_bucket" "s3_bucket" {
 
 resource "aws_s3_bucket_acl" "name" {
   bucket = aws_s3_bucket.s3_bucket.id
-  acl = "private"
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_versioning" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
   versioning_configuration {
-    status = var.s3_versioning_enabled ? "Enabled" : "Disabled" #default = false
+    status = var.s3_versioning_enabled ? "Enabled" : "Suspended"
   }
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
   rule {
-    status = var.lifecycle_rule_enabled  ? "Enabled" : "Disabled" #default = false
-    id      = "test"      #required #default = ""
+    status = var.lifecycle_rule_enabled ? "Enabled" : "Disabled" #default = false
+    id     = var.lifecycle_config_rule_id                        #required #default = ""
 
     filter {
-      prefix  = var.lifecycle_rule_prefix  #default = whole bucket
+      prefix = var.lifecycle_rule_prefix #default = whole bucket
     }
 
 
@@ -31,7 +31,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket" {
     }
 
     noncurrent_version_expiration {
-      noncurrent_days  = var.lifecycle_rule_noncurrent_version_expiration #default = 90
+      noncurrent_days = var.lifecycle_rule_noncurrent_version_expiration #default = 90
     }
   }
 }

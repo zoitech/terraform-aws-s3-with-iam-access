@@ -1,6 +1,10 @@
-## Releases Version: 1.0.0
+## Release Version: 1.0.1
 ENHANCEMENTS:
-* Upgrade TF to version 12 
+* Fix deprecated terraform resources
+
+## Release Version: 1.0.0
+ENHANCEMENTS:
+* Upgrade TF to version 12
 
 ## Release Version: 0.0.2
 
