@@ -43,3 +43,8 @@ variable "enable_kms_bucket_policy" {
   default     = false
 }
 
+variable "lifecycle_config_rule_id" {
+  description = "ID of the lifecycle configuration rule"
+  default     = ""
+  type        = string
+}
