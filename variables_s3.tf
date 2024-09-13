@@ -48,3 +48,9 @@ variable "lifecycle_config_rule_id" {
   default     = ""
   type        = string
 }
+
+variable "tags" {
+  description = "Tags to be added to the bucket"
+  type        = map(string)
+  default     = {}
+}

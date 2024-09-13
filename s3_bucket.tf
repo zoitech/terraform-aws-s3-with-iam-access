@@ -1,6 +1,8 @@
 # The S3 bucket
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.s3_bucket_name
+
+  tags = merge({ Name = var.s3_bucket_name, role = "storage" }, var.tags)
 }
 
 resource "aws_s3_bucket_acl" "name" {
