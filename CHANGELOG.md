@@ -1,3 +1,7 @@
+## Release Version: 1.1.0
+ENHANCEMENTS:
+* Add variable to tag bucket
+
 ## Release Version: 1.0.1
 ENHANCEMENTS:
 * Fix deprecated terraform resources

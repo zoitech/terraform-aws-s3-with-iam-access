@@ -168,6 +168,7 @@ User-Info = [
 "bucket_key: my-s3-bucket/Louie"
 ]
 ```
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -250,6 +251,7 @@ No modules.
 | <a name="input_s3_lifecycle_prevent_destroy"></a> [s3\_lifecycle\_prevent\_destroy](#input\_s3\_lifecycle\_prevent\_destroy) | Prevent/allow terraform to destroy the bucket | `bool` | `false` | no |
 | <a name="input_s3_versioning_enabled"></a> [s3\_versioning\_enabled](#input\_s3\_versioning\_enabled) | To enable file versioning | `bool` | `false` | no |
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | A suffix which is added to each resource name. | `string` | `""` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to be added to the bucket | `map(string)` | `{}` | no |
 
 ## Outputs
 
@@ -261,3 +263,4 @@ No modules.
 | <a name="output_s3_get_delete_user_info"></a> [s3\_get\_delete\_user\_info](#output\_s3\_get\_delete\_user\_info) | n/a |
 | <a name="output_s3_list_delete_user_info"></a> [s3\_list\_delete\_user\_info](#output\_s3\_list\_delete\_user\_info) | n/a |
 | <a name="output_standard_user_info"></a> [standard\_user\_info](#output\_standard\_user\_info) | n/a |
+<!-- END_TF_DOCS -->
