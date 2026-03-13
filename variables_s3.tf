@@ -54,3 +54,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "custom_principal" {
+  description = "Optional: Principal map. E.g. { AWS = 'arn...' } or { Service = 'lambda.amazonaws.com' }"
+  type        = any
+  default     = null
+}

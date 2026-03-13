@@ -1,6 +1,3 @@
-data "aws_caller_identity" "current" {
-}
-
 # Account
 provider "aws" {
   region = var.region
