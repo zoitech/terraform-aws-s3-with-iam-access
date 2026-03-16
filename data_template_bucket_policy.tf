@@ -17,9 +17,10 @@ data "template_file" "bucket_policy_for_a_standard_user" {
   )
 
   vars = {
-    bucket-arn = aws_s3_bucket.s3_bucket.arn
-    user-name  = element(aws_iam_user.standard_user.*.name, count.index)
-    kms-key    = element(aws_kms_key.kmskey.*.key_id, count.index)
+    bucket-arn     = aws_s3_bucket.s3_bucket.arn
+    user-name      = element(aws_iam_user.standard_user.*.name, count.index)
+    kms-key        = element(aws_kms_key.kmskey.*.key_id, count.index)
+    principal_json = jsonencode(local.active_principal)
   }
 }
 

@@ -1,7 +1,7 @@
      {
       "Sid":"AllowEncryptedObjectUploads-${user-name}",
      "Effect":"Allow",
-     "Principal":"*",
+     "Principal": ${principal_json},
      "Action":"s3:PutObject",
      "Resource":"${bucket-arn}/${user-name}/*",
      "Condition":{
